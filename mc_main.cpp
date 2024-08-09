@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
     // Record the start time
     // Start time
     auto start_time = chrono::system_clock::now();
-    auto start_time_str = chrono::system_clock::to_time_t(start_time);
+    //auto start_time_str = chrono::system_clock::to_time_t(start_time);
 
     //equilibration
     int num_eq = 10000;
@@ -93,7 +93,7 @@ int main(int argc, char* argv[]) {
     
     // End time
     auto end_time = chrono::system_clock::now();
-    auto end_time_str = chrono::system_clock::to_time_t(end_time);
+    //auto end_time_str = chrono::system_clock::to_time_t(end_time);
     
     // Print processing time
     chrono::duration<double> elapsed_time = end_time - start_time;
@@ -113,7 +113,7 @@ int main(int argc, char* argv[]) {
     // Record the start time
     // Start time
     auto start_time_wp = chrono::system_clock::now();
-    auto start_time_str_wp = chrono::system_clock::to_time_t(start_time_wp);
+    //auto start_time_str_wp = chrono::system_clock::to_time_t(start_time_wp);
 
     for(int j = 1; j < num_moves+1; j++) {
         mc_move(e, beta, s, box_dim, positions, total_n_atoms,step_size, trials, accepted_moves, total_accepted_moves, E, w, gen);  
@@ -124,6 +124,7 @@ int main(int argc, char* argv[]) {
             PE_wp << E << " ," << sum_E/total_accepted_moves << " ," << elapsed_wp.count() << endl;
         }
     }
+    cout << "Num of moves for insertion: " << total_accepted_moves << endl;
 
     double acceptance_ratio = static_cast<double>(total_accepted_moves) / num_moves;
     cout << "avg Acceptance Ratio: " << acceptance_ratio << endl;
@@ -134,7 +135,7 @@ int main(int argc, char* argv[]) {
 
     // End time
     auto end_time_wp = chrono::system_clock::now();
-    auto end_time_str_wp = chrono::system_clock::to_time_t(end_time_wp);
+    //auto end_time_str_wp = chrono::system_clock::to_time_t(end_time_wp);
     //cout << "Wp End time: " << put_time(localtime(&end_time_str_wp), "%Y-%m-%d %X") << endl;
     
     // Print processing time
@@ -148,7 +149,7 @@ int main(int argc, char* argv[]) {
 //equation of state vs the test particle insertion method
 //the pressure of the system must change to accomodate the inserted atom
 
-//case study 7: equation of state of LJ fluid
+//case study 1: equation of state of LJ fluid 719
 //case study 15: widom particle insertion method
 //3.3.2 Technical details 63
 //5.1.5 Pressure 130
